@@ -1,0 +1,79 @@
+<!doctype html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style-login.css' %}">
+
+    <title>Login</title>
+  </head>
+  <body>
+
+
+
+    <div class="navbar">
+      <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/andre-bandeli/api-rest-django">Sobre</a>
+          </li>
+  </div>
+
+    <div class="container">
+      <div class="row d-flex justify-content-center mt-5">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card py-3 px-2">
+            <p class="text-center mb-3 mt-2">CONECTE-SE COM</p>
+            <div class="row mx-auto ">
+              <div class="col-4">
+               <a href=""><i class="fab fa-twitter"><img src="{% static 'images/github.png' %}" alt=""></i></a> 
+              </div>
+              <div class="col-4">
+                <a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fab fa-facebook"><img src="{% static 'images/gmail.png' %}" alt=""></i></a>
+              </div>
+              <div class="col-4">
+                <i class="fab fa-google"><img src="{% static 'images/facebook.png' %}" alt=""></i>
+              </div>
+            </div>
+            <div class="division">
+              <div class="row">
+                <div class="col-3"><div class="line l"></div></div>
+                <div class="col-6"><span>OU ATRAVÉS DO E-MAIL</span></div>
+                <div class="col-3"><div class="line r"></div></div>
+              </div>
+            </div>
+            <form class="myform" method="post">
+              {% csrf_token %}
+                {{form|crispy}}
+            
+                <div class="row">
+                  <div class="col-md-12 col-12 bn">Esqueceu sua senha?</div>
+                </div>
+                <div class="row">
+                 <a href="/novouser"><div class="col-md-12 col-12 bn-2">Criar nova conta</div> </a> 
+                </div>
+                <div class="form-group mt-3">
+                  <button type="submit" class="btn btn-block btn-primary btn-lg"><small><i class="far fa-user pr-2"></i>Conectar-se</small></button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  
+  </body>
+</html>

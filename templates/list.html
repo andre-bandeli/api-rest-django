@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+
+    <div class="adicionar">
+      <button>
+        <a href="/create">Adicionar nova tarefa
+
+      </a></button>
+
+    </div>
+
+
+    <section id="tabela">
+      <div class="container">
+        <table>
+          <tr>
+            <td>Tarefa</td>
+            <td>Atividade em aberto?</td>
+            <td>delete</td>
+            <td>edit</td>
+          </tr>
+          {% for dbs in db %}
+          <tr>
+            <td>{{dbs.nome}}</td>
+            {% if dbs.is_active %}
+            <td>aberta</td>
+            {%else%}
+            <td class="td-false">fechada
+              <div class="line">
+              </div>
+            </td>
+            {% endif %}
+            <td id="td-btn"><a href="/delete/{{dbs.id}}/"><img src="{% static 'css/delete.svg' %}" alt=""></a></td>
+            <td id="td-btn"><a href="/editar/{{dbs.id}}"><img src="{% static 'css/editing.png' %} " alt=""></a></td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+        
+    </section>
+
+{% endblock %}

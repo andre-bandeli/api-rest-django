@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="forms">
+        <form  id="form" action="{% if db %}/editar/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input  type="submit" value="SALVAR">
+        </form>
+    </div>
+
+
+{% endblock %}
