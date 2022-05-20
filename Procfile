@@ -1,1 +1,1 @@
-web: gunicorn guia.wsgi
+web: gunicorn rest.wsgi
